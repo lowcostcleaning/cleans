@@ -1,28 +1,37 @@
 import { Button } from "@/components/ui/button";
 import ModuleCard from "@/components/ModuleCard";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
 const Index = () => {
+  const { t } = useLanguage();
+
   const modules = [
     {
       name: "Clean",
-      description: "Cleaning calendar and workflows for property managers and cleaners",
+      descriptionKey: "cleanDesc",
       status: "active" as const,
+      statusKey: "active",
     },
     {
       name: "Stay",
-      description: "Short-term rental management with automatic cleaning workflows",
+      descriptionKey: "stayDesc",
       status: "coming" as const,
+      statusKey: "coming",
     },
     {
       name: "Invest",
-      description: "Property investment marketplace with management handover",
+      descriptionKey: "investDesc",
       status: "coming" as const,
+      statusKey: "coming",
     },
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
+      <LanguageToggle />
+      
       {/* Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-3xl mx-auto text-center animate-fade-in">
@@ -33,24 +42,24 @@ const Index = () => {
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl font-light text-muted-foreground mb-8">
-            Operating system for property & service workflows
+            {t("subtitle")}
           </p>
           
           {/* Description */}
           <p className="text-base md:text-lg text-muted-foreground/80 max-w-xl mx-auto mb-12 leading-relaxed">
-            CleanOS unites cleaning, short-term rental management, and property investment workflows in one system.
+            {t("description")}
           </p>
           
           {/* CTA */}
           <div className="flex flex-col items-center gap-4">
             <a href="https://app.cleanos.space/" target="_blank" rel="noopener noreferrer">
               <Button variant="hero" size="xl" className="group">
-                Enter CleanOS Clean (beta)
+                {t("cta")}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </a>
             <span className="text-sm text-muted-foreground">
-              CleanOS Clean — active module
+              {t("activeModule")}
             </span>
           </div>
         </div>
@@ -64,8 +73,9 @@ const Index = () => {
               <ModuleCard
                 key={module.name}
                 name={module.name}
-                description={module.description}
+                description={t(module.descriptionKey)}
                 status={module.status}
+                statusLabel={t(module.statusKey)}
                 delay={`animate-fade-in-delay-${index + 1}`}
               />
             ))}
@@ -77,7 +87,7 @@ const Index = () => {
       <footer className="px-6 py-8 border-t border-border/50">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-sm text-muted-foreground">
-            © CleanOS. Platform in active development.
+            {t("footer")}
           </p>
         </div>
       </footer>
