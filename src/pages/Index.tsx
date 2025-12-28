@@ -43,10 +43,12 @@ const Index = () => {
           
           {/* CTA */}
           <div className="flex flex-col items-center gap-4">
-            <Button variant="hero" size="xl" className="group">
-              Enter CleanOS Clean (beta)
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <a href="https://app.cleanos.space/" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="xl" className="group">
+                Enter CleanOS Clean (beta)
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </a>
             <span className="text-sm text-muted-foreground">
               CleanOS Clean — active module
             </span>
