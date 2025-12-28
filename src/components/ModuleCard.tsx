@@ -1,13 +1,15 @@
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ModuleCardProps {
   name: string;
   description: string;
   status: "active" | "coming";
+  statusLabel: string;
   delay?: string;
 }
 
-const ModuleCard = ({ name, description, status, delay = "" }: ModuleCardProps) => {
+const ModuleCard = ({ name, description, status, statusLabel, delay = "" }: ModuleCardProps) => {
   return (
     <div 
       className={`glass-card rounded-2xl p-8 hover-lift ${delay}`}
@@ -22,7 +24,7 @@ const ModuleCard = ({ name, description, status, delay = "" }: ModuleCardProps) 
               : "bg-muted text-muted-foreground"
           }`}
         >
-          {status === "active" ? "Active (beta)" : "Coming soon"}
+          {statusLabel}
         </Badge>
       </div>
       <p className="text-muted-foreground leading-relaxed">
