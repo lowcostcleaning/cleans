@@ -4,7 +4,6 @@ import LanguageToggle from "@/components/LanguageToggle";
 import Snowfall from "@/components/Snowfall";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight } from "lucide-react";
-import santaHat from "@/assets/santa-hat.png";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -38,17 +37,10 @@ const Index = () => {
       {/* Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-3xl mx-auto text-center animate-fade-in">
-          {/* Logo / Title with Santa Hat */}
-          <div className="relative inline-block">
-            <img 
-              src={santaHat} 
-              alt="Santa hat" 
-              className="absolute -top-8 -left-4 md:-top-12 md:-left-6 w-16 md:w-24 -rotate-12 z-10 drop-shadow-lg"
-            />
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-foreground mb-4">
-              CleanOS
-            </h1>
-          </div>
+          {/* Logo / Title */}
+          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-foreground mb-4">
+            CleanOS
+          </h1>
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl font-light text-muted-foreground mb-8">
