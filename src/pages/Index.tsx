@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ModuleCard from "@/components/ModuleCard";
 import LanguageToggle from "@/components/LanguageToggle";
+import Snowfall from "@/components/Snowfall";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
@@ -29,7 +30,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <Snowfall />
       <LanguageToggle />
       
       {/* Hero Section */}

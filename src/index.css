@@ -53,9 +53,12 @@
     --shadow-soft: 220 60% 50% / 0.06;
     --shadow-glow: 220 70% 50% / 0.15;
     
-    /* Gradient backgrounds */
-    --gradient-hero: linear-gradient(180deg, hsl(220 30% 98%) 0%, hsl(220 20% 95%) 100%);
+    /* Gradient backgrounds - festive winter theme */
+    --gradient-hero: linear-gradient(180deg, hsl(210 40% 96%) 0%, hsl(220 30% 92%) 50%, hsl(200 25% 94%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(220 70% 50%) 0%, hsl(250 70% 60%) 100%);
+    
+    /* Festive colors */
+    --festive-glow: 200 80% 70% / 0.15;
     
     /* Status colors */
     --status-active: 142 70% 45%;
@@ -183,6 +186,36 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Snowfall animation */
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Festive sparkle */
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
     }
   }
 }
